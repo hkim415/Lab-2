@@ -1,3 +1,5 @@
+import { convertedMonth } from './switch-case.js';
+
 const getDayOfTheWeek = (year, month, day) => {
     //Define local variables
     const monthCode = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
@@ -6,7 +8,7 @@ const getDayOfTheWeek = (year, month, day) => {
     let fitTwelves;
     let remainder;
     let fitFours;
-    let convertedMonth;
+    let convertedMonthCode = convertedMonth(month);
     let sum;
     let final;
 
@@ -15,53 +17,17 @@ const getDayOfTheWeek = (year, month, day) => {
     remainder = lastTwoDigit % 12;
     fitFours = Math.floor(remainder / 4);
 
-    switch (month.toUpperCase()) {
-        case "JANUARY":
-            convertedMonth = 0;
-            break;
-        case "FEBRUARY":
-            convertedMonth = 1;
-            break;
-        case "MARCH":
-            convertedMonth = 2;
-            break;
-        case "APRIL":
-            convertedMonth = 3;
-            break;
-        case "MAY":
-            convertedMonth = 4;
-            break;
-        case "JUNE":
-            convertedMonth = 5;
-            break;
-        case "JULY":
-            convertedMonth = 6;
-            break;
-        case "AUGUST":
-            convertedMonth = 7;
-            break;
-        case "SEPTEMBER":
-            convertedMonth = 8;
-            break;
-        case "OCTOBER":
-            convertedMonth = 9;
-            break;
-        case "NOVEMBER":
-            convertedMonth = 10;
-            break;
-        case "DECEMBER":
-            convertedMonth = 11;
-            break; 
-    }
-
-    sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonth];
+    sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode];
+    final = sum % 7;
+    
 
     console.log(lastTwoDigit);
     console.log(fitTwelves);
     console.log(remainder);
     console.log(fitFours);
-    console.log(convertedMonth);
+    console.log(convertedMonthCode);
     console.log(sum);
+    console.log(dayOfTheWeek[final]);
 }
 
 getDayOfTheWeek(1993, "FEBrUary", 12);
