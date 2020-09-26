@@ -13,7 +13,7 @@ const getDayOfTheWeek = (year, month, day) => {
     let sum;
     let final;
 
-    lastTwoDigit = parseInt(year.toString().substr(-2));
+    lastTwoDigit = year % 100;
     fitTwelves = Math.floor(lastTwoDigit / 12);
     remainder = lastTwoDigit % 12;
     fitFours = Math.floor(remainder / 4);
@@ -25,19 +25,19 @@ const getDayOfTheWeek = (year, month, day) => {
     sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode] - leapYear + convertCentury(year);
     final = sum % 7;
     
-/* 
-    console.log("lastTwoDigit", lastTwoDigit);
-    console.log("fitTwelves",fitTwelves);
-    console.log("remainder",remainder);
-    console.log("fitFours",fitFours);
-    console.log("day", day);
-    console.log("month code", monthCode[convertedMonthCode]);
-    console.log("century code", convertCentury(year));
-    console.log("leapyear", isLeapYear(year));
-    console.log("leapyearValue", leapYear);
 
-    console.log("sum", sum);
-    console.log(dayOfTheWeek[final]); */
+    // console.log("lastTwoDigit", lastTwoDigit);
+    // console.log("fitTwelves",fitTwelves);
+    // console.log("remainder",remainder);
+    // console.log("fitFours",fitFours);
+    // console.log("day", day);
+    // console.log("month code", monthCode[convertedMonthCode]);
+    // console.log("century code", convertCentury(year));
+    // console.log("leapyear", isLeapYear(year));
+    // console.log("leapyearValue", leapYear);
+
+    // console.log("sum", sum);
+    console.log(dayOfTheWeek[final]);
 
     return dayOfTheWeek[final];
 }
@@ -88,4 +88,4 @@ const makeCalendar = () => {
 }
 
 getDayOfTheWeek(2020, "September", 26);
-makeCalendar();
+// makeCalendar();
