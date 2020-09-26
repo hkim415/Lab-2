@@ -1,5 +1,6 @@
 import { convertMonth, convertCentury } from './switch-case.js';
 
+//function to get the day of a week
 const getDayOfTheWeek = (year, month, day) => {
     //Define local variables
     const monthCode = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
@@ -13,35 +14,25 @@ const getDayOfTheWeek = (year, month, day) => {
     let sum;
     let final;
 
+    //Calculation for variables
     lastTwoDigit = year % 100;
     fitTwelves = Math.floor(lastTwoDigit / 12);
     remainder = lastTwoDigit % 12;
     fitFours = Math.floor(remainder / 4);
 
+    //Check if the month is January or February in a leap year
     if (isLeapYear(year) && (convertedMonthCode === 0 || convertedMonthCode === 1)) {
         leapYear = 1;
     }
 
+    //Final calculation to get the day of a week
     sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode] - leapYear + convertCentury(year);
     final = sum % 7;
     
-
-    // console.log("lastTwoDigit", lastTwoDigit);
-    // console.log("fitTwelves",fitTwelves);
-    // console.log("remainder",remainder);
-    // console.log("fitFours",fitFours);
-    // console.log("day", day);
-    // console.log("month code", monthCode[convertedMonthCode]);
-    // console.log("century code", convertCentury(year));
-    // console.log("leapyear", isLeapYear(year));
-    // console.log("leapyearValue", leapYear);
-
-    // console.log("sum", sum);
-    console.log(dayOfTheWeek[final]);
-
     return dayOfTheWeek[final];
 }
 
+//function to check if it's a leap year
 const isLeapYear = (yr) => {
     if (yr % 4 !== 0) {
         return false;
@@ -54,8 +45,9 @@ const isLeapYear = (yr) => {
     }
 }
 
+//function to print all dates in year 2020
 const makeCalendar = () => {
-    
+    //Declare local variables
     const months = ["January", 
                     "February", 
                     "March", 
@@ -70,6 +62,7 @@ const makeCalendar = () => {
                     "December"];
     const hasThirtyFirst = [true, false, true, false, true, false, true, true, false, true, false, true];
     
+    //Using loop to append each dates chronologically
     for (let i = 0; i < 12; i++) {
         if (i === 1) {
             for (let j = 1; j <= 29; j++) {
@@ -87,5 +80,4 @@ const makeCalendar = () => {
     }
 }
 
-getDayOfTheWeek(2020, "September", 26);
-// makeCalendar();
+export { getDayOfTheWeek, makeCalendar };
