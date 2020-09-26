@@ -18,14 +18,14 @@ const getDayOfTheWeek = (year, month, day) => {
     remainder = lastTwoDigit % 12;
     fitFours = Math.floor(remainder / 4);
 
-    if (isLeapYear(year) && (convertedMonthCode === 0 || convertedMonthCode ===1)) {
+    if (isLeapYear(year) && (convertedMonthCode === 0 || convertedMonthCode === 1)) {
         leapYear = 1;
     }
 
     sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode] - leapYear + convertCentury(year);
     final = sum % 7;
     
-
+/* 
     console.log("lastTwoDigit", lastTwoDigit);
     console.log("fitTwelves",fitTwelves);
     console.log("remainder",remainder);
@@ -37,7 +37,9 @@ const getDayOfTheWeek = (year, month, day) => {
     console.log("leapyearValue", leapYear);
 
     console.log("sum", sum);
-    console.log(dayOfTheWeek[final]);
+    console.log(dayOfTheWeek[final]); */
+
+    return dayOfTheWeek[final];
 }
 
 const isLeapYear = (yr) => {
@@ -52,4 +54,38 @@ const isLeapYear = (yr) => {
     }
 }
 
+const makeCalendar = () => {
+    
+    const months = ["January", 
+                    "February", 
+                    "March", 
+                    "April", 
+                    "May", 
+                    "June", 
+                    "July", 
+                    "August", 
+                    "September", 
+                    "October", 
+                    "November", 
+                    "December"];
+    const hasThirtyFirst = [true, false, true, false, true, false, true, true, false, true, false, true];
+    
+    for (let i = 0; i < 12; i++) {
+        if (i === 1) {
+            for (let j = 1; j <= 29; j++) {
+                console.log(months[i] + '-' + j + '-' + "2020 is " + getDayOfTheWeek(2020, months[i], j));
+            }
+        } else if (hasThirtyFirst[i]) {
+            for (let j = 1; j <= 31; j++) {
+                console.log(months[i] + '-' + j + '-' + "2020 is " + getDayOfTheWeek(2020, months[i], j));
+            }
+        } else {
+            for (let j = 1; j <= 30; j++) {
+                console.log(months[i] + '-' + j + '-' + "2020 is " + getDayOfTheWeek(2020, months[i], j));
+            }
+        }
+    }
+}
+
 getDayOfTheWeek(2020, "September", 26);
+makeCalendar();
