@@ -9,7 +9,7 @@ const getDayOfTheWeek = (year, month, day) => {
     let remainder;
     let fitFours;
     let convertedMonthCode = convertMonth(month);
-    let leapYear;
+    let leapYear = 0;
     let sum;
     let final;
 
@@ -18,9 +18,11 @@ const getDayOfTheWeek = (year, month, day) => {
     remainder = lastTwoDigit % 12;
     fitFours = Math.floor(remainder / 4);
 
-    // if (isLeapYear(year))
+    if (isLeapYear(year) && (convertedMonthCode === 0 || convertedMonthCode ===1)) {
+        leapYear = 1;
+    }
 
-    sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode] + convertCentury(year);
+    sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode] - leapYear + convertCentury(year);
     final = sum % 7;
     
 
@@ -32,6 +34,7 @@ const getDayOfTheWeek = (year, month, day) => {
     console.log("month code", monthCode[convertedMonthCode]);
     console.log("century code", convertCentury(year));
     console.log("leapyear", isLeapYear(year));
+    console.log("leapyearValue", leapYear);
 
     console.log("sum", sum);
     console.log(dayOfTheWeek[final]);
@@ -49,4 +52,4 @@ const isLeapYear = (yr) => {
     }
 }
 
-getDayOfTheWeek(1992, "september", 12);
+getDayOfTheWeek(2020, "September", 26);
