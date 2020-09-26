@@ -1,4 +1,4 @@
-import { convertedMonth } from './switch-case.js';
+import { convertMonth, convertCentury } from './switch-case.js';
 
 const getDayOfTheWeek = (year, month, day) => {
     //Define local variables
@@ -8,7 +8,8 @@ const getDayOfTheWeek = (year, month, day) => {
     let fitTwelves;
     let remainder;
     let fitFours;
-    let convertedMonthCode = convertedMonth(month);
+    let convertedMonthCode = convertMonth(month);
+    let leapYear;
     let sum;
     let final;
 
@@ -17,17 +18,35 @@ const getDayOfTheWeek = (year, month, day) => {
     remainder = lastTwoDigit % 12;
     fitFours = Math.floor(remainder / 4);
 
-    sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode];
+    // if (isLeapYear(year))
+
+    sum = fitTwelves + remainder + fitFours + day + monthCode[convertedMonthCode] + convertCentury(year);
     final = sum % 7;
     
 
-    console.log(lastTwoDigit);
-    console.log(fitTwelves);
-    console.log(remainder);
-    console.log(fitFours);
-    console.log(convertedMonthCode);
-    console.log(sum);
+    console.log("lastTwoDigit", lastTwoDigit);
+    console.log("fitTwelves",fitTwelves);
+    console.log("remainder",remainder);
+    console.log("fitFours",fitFours);
+    console.log("day", day);
+    console.log("month code", monthCode[convertedMonthCode]);
+    console.log("century code", convertCentury(year));
+    console.log("leapyear", isLeapYear(year));
+
+    console.log("sum", sum);
     console.log(dayOfTheWeek[final]);
 }
 
-getDayOfTheWeek(1993, "FEBrUary", 12);
+const isLeapYear = (yr) => {
+    if (yr % 4 !== 0) {
+        return false;
+    } else if (yr % 100 !== 0) {
+        return true;
+    } else if (yr % 400 !== 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+getDayOfTheWeek(1992, "september", 12);
