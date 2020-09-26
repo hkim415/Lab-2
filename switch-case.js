@@ -1,4 +1,4 @@
-const convertedMonth = (month) => {
+const convertMonth = (month) => {
     switch (month.toUpperCase()) {
         case "JANUARY":
             return 0;
@@ -39,4 +39,26 @@ const convertedMonth = (month) => {
     }
 }
 
-export { convertedMonth };
+const convertCentury = (year) => {
+    switch (parseInt(year.toString().substr(0, 2))) {
+        case 16:
+            return 6;
+            break;
+        case 17:
+            return 4;
+            break;
+        case 18:
+            return 2;
+            break;
+        case 20:
+            return 6;
+            break;
+        case 21:
+            return 4;
+            break;
+        default:
+            return 0;
+    }
+}
+
+export { convertMonth, convertCentury };
