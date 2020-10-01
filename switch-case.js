@@ -1,41 +1,110 @@
 const convertMonth = (month) => {
     switch (month.toUpperCase()) {
-        case "JANUARY":
+        case 'JANUARY':
             return 0;
             break;
-        case "FEBRUARY":
+        case 'JAN':
+            return 0;
+            break;
+        case '1':
+            return 0;
+            break;
+        case 'FEBRUARY':
             return 1;
             break;
-        case "MARCH":
+        case 'FEB':
+            return 1;
+            break;
+        case '2':
+            return 1;
+            break;
+        case 'MARCH':
             return 2;
             break;
-        case "APRIL":
+        case 'MAR':
+            return 2;
+            break;
+        case '3':
+            return 2;
+            break;
+        case 'APRIL':
             return 3;
             break;
-        case "MAY":
+        case 'APR':
+            return 3;
+            break;
+        case '4':
+            return 3;
+            break;
+        case 'MAY':
             return 4;
             break;
-        case "JUNE":
+        case '5':
+            return 4;
+            break;
+        case 'JUNE':
             return 5;
             break;
-        case "JULY":
+        case 'JUN':
+            return 5;
+            break;
+        case '6':
+            return 5;
+            break;
+        case 'JULY':
             return 6;
             break;
-        case "AUGUST":
+        case 'JUL':
+            return 6;
+            break;
+        case '7':
+            return 6;
+            break;
+        case 'AUGUST':
             return 7;
             break;
-        case "SEPTEMBER":
+        case 'AUG':
+            return 7;
+            break;
+        case '8':
+            return 7;
+            break;
+        case 'SEPTEMBER':
             return 8;
             break;
-        case "OCTOBER":
+        case 'SEP':
+            return 8;
+            break;
+        case '9':
+            return 8;
+            break;
+        case 'OCTOBER':
             return 9;
             break;
-        case "NOVEMBER":
+        case 'OCT':
+            return 9;
+            break;
+        case '10':
+            return 9;
+            break;
+        case 'NOVEMBER':
             return 10;
             break;
-        case "DECEMBER":
+        case 'NOV':
+            return 10;
+            break;
+        case '11':
+            return 10;
+            break;
+        case 'DECEMBER':
             return 11;
-            break; 
+            break;
+        case 'DEC':
+            return 11;
+            break;
+        case '12':
+            return 11;
+            break;
     }
 }
 
