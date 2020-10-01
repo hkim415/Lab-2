@@ -4,7 +4,7 @@ import { convertMonth, convertCentury } from './switch-case.js';
 const getDayOfTheWeek = (year, month, day) => {
     //Define local variables
     const monthCode = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
-    const dayOfTheWeek = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+    const dayOfTheWeek = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     let lastTwoDigit;
     let fitTwelves;
     let remainder;
@@ -48,33 +48,30 @@ const isLeapYear = (yr) => {
 //function to print all dates in year 2020
 const makeCalendar = () => {
     //Declare local variables
-    const months = ["January", 
-                    "February", 
-                    "March", 
-                    "April", 
-                    "May", 
-                    "June", 
-                    "July", 
-                    "August", 
-                    "September", 
-                    "October", 
-                    "November", 
-                    "December"];
-    const hasThirtyFirst = [true, false, true, false, true, false, true, true, false, true, false, true];
+    const months = [
+                    'January', 'February', 'March', 'April',
+                    'May', 'June', 'July', 'August',
+                    'September', 'October', 'November', 'December'
+                   ];
+    const hasThirtyFirst = [
+                            true, false, true, false,
+                            true, false, true, true,
+                            false, true, false, true
+                           ];
     
     //Using loop to append each dates chronologically
     for (let i = 0; i < 12; i++) {
         if (i === 1) {
             for (let j = 1; j <= 29; j++) {
-                console.log(months[i] + '-' + j + '-' + "2020 is " + getDayOfTheWeek(2020, months[i], j));
+                console.log(months[i] + '-' + j + '-' + '2020 is ' + getDayOfTheWeek(2020, months[i], j));
             }
         } else if (hasThirtyFirst[i]) {
             for (let j = 1; j <= 31; j++) {
-                console.log(months[i] + '-' + j + '-' + "2020 is " + getDayOfTheWeek(2020, months[i], j));
+                console.log(months[i] + '-' + j + '-' + '2020 is ' + getDayOfTheWeek(2020, months[i], j));
             }
         } else {
             for (let j = 1; j <= 30; j++) {
-                console.log(months[i] + '-' + j + '-' + "2020 is " + getDayOfTheWeek(2020, months[i], j));
+                console.log(months[i] + '-' + j + '-' + '2020 is ' + getDayOfTheWeek(2020, months[i], j));
             }
         }
     }
