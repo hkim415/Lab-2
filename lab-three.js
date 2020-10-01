@@ -1,5 +1,11 @@
 import { convertMonth, convertCentury } from './switch-case.js';
 
+const months = [
+    'January', 'February', 'March', 'April',
+    'May', 'June', 'July', 'August',
+    'September', 'October', 'November', 'December'
+   ];
+
 //function to get the day of a week
 const getDayOfTheWeek = (year, month, day) => {
     //Define local variables
@@ -48,11 +54,6 @@ const isLeapYear = (yr) => {
 //function to print all dates in year 2020
 const makeCalendar = () => {
     //Declare local variables
-    const months = [
-                    'January', 'February', 'March', 'April',
-                    'May', 'June', 'July', 'August',
-                    'September', 'October', 'November', 'December'
-                   ];
     const hasThirtyFirst = [
                             true, false, true, false,
                             true, false, true, true,
@@ -77,4 +78,4 @@ const makeCalendar = () => {
     }
 }
 
-export { getDayOfTheWeek, makeCalendar };
+export { getDayOfTheWeek, makeCalendar, months };
