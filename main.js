@@ -1,9 +1,10 @@
 import pkg from 'readline-sync';
 import { getDayOfTheWeek, makeCalendar } from './lab-three.js';
-const { question } = pkg;
 
-let year = parseInt(question('Please enter a year'));
+const { question, questionInt } = pkg;
+
+let year = questionInt('Please enter a year');
 let month = question('Please enter a month');
-let date = parseInt(question('Please enter a date'));
+let date = questionInt('Please enter a date');
 
-getDayOfTheWeek(year, month, date);
+console.log(month.charAt(0).toUpperCase() + month.slice(1) + " " + date + ", " + year + " is " + getDayOfTheWeek(year, month, date));
